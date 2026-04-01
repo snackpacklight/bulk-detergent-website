@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="High-quality bulk laundry detergent in 5-gallon buckets. Comparable to leading national brands at a fraction of the cost. Serving Tampa, Riverview, Lakeland, and surrounding areas." />
+  <title>BulkWash Co. — Bulk Laundry Detergent</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0f2040;
+      --navy-light: #1a3260;
+      --teal:   #1aaa8c;
+      --teal-dark: #138a70;
+      --white:  #ffffff;
+      --gray-50: #f7f8fa;
+      --gray-100: #eef0f4;
+      --gray-300: #c8cdd8;
+      --gray-500: #6b7280;
+      --gray-700: #374151;
+      --gray-900: #111827;
+      --font: 'Inter', sans-serif;
+      --max-w: 1100px;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(15,32,64,0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--white);
+      color: var(--gray-900);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── UTILITIES ────────────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section { padding: 88px 0; }
+    .section--alt { background: var(--gray-50); }
+
+    .section-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: var(--gray-500);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 32px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn--primary {
+      background: var(--teal);
+      color: var(--white);
+      box-shadow: 0 4px 18px rgba(26,170,140,0.35);
+    }
+    .btn--primary:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26,170,140,0.40);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+    .btn--outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* ─── NAVIGATION ───────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-100);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .nav.scrolled { box-shadow: var(--shadow); }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav__logo {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+    }
+    .nav__logo span { color: var(--teal); }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--gray-700);
+      transition: color 0.15s;
+    }
+    .nav__links a:hover { color: var(--navy); }
+
+    .nav__cta {
+      background: var(--navy);
+      color: var(--white) !important;
+      padding: 9px 20px;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      transition: background 0.15s, transform 0.15s !important;
+    }
+    .nav__cta:hover { background: var(--navy-light) !important; transform: translateY(-1px); }
+
+    /* Hamburger */
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav__toggle span {
+      width: 24px; height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+
+    .nav__mobile {
+      display: none;
+      flex-direction: column;
+      background: var(--white);
+      border-top: 1px solid var(--gray-100);
+      padding: 20px 24px 28px;
+      gap: 4px;
+    }
+    .nav__mobile a {
+      display: block;
+      padding: 12px 0;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--gray-700);
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .nav__mobile a:last-child { border-bottom: none; }
+    .nav__mobile.open { display: flex; }
+
+    /* ─── HERO ─────────────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 68px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(26,170,140,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -150px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(26,170,140,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero__inner {
+      position: relative;
+      z-index: 1;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(26,170,140,0.15);
+      border: 1px solid rgba(26,170,140,0.35);
+      color: #4fdcc0;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+    }
+    .hero__badge::before { content: '✦'; font-size: 11px; }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 72px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: #4fdcc0;
+    }
+
+    .hero__sub {
+      font-size: clamp(17px, 2.5vw, 21px);
+      color: rgba(255,255,255,0.75);
+      font-weight: 400;
+      margin-bottom: 18px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero__desc {
+      font-size: 16px;
+      color: rgba(255,255,255,0.55);
+      max-width: 480px;
+      margin-bottom: 44px;
+      line-height: 1.75;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero__phone-hint {
+      margin-top: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: rgba(255,255,255,0.45);
+      font-size: 14px;
+    }
+
+    .hero__stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 72px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .hero__stat-num {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.03em;
+    }
+    .hero__stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 2px;
+    }
+
+    /* ─── ABOUT ────────────────────────────────────────────────────── */
+    .about__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about__visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about__product-card {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 100%);
+      border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(15,32,64,0.22);
+      padding: 32px 36px 36px;
+      text-align: center;
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .about__product-card img {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto 24px;
+      object-fit: cover;
+    }
+
+    .about__product-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .about__product-prices {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .about__product-price {
+      font-size: 20px;
+      font-weight: 800;
+      color: #4fdcc0;
+      letter-spacing: -0.02em;
+    }
+
+    .about__product-benefits {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .about__product-benefits li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .about__product-benefits li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .about__content p {
+      color: var(--gray-500);
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .about__content p:last-child { margin-bottom: 0; }
+
+    .about__content strong { color: var(--gray-900); font-weight: 600; }
+
+    /* ─── PRODUCT ──────────────────────────────────────────────────── */
+    .product__wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .product__card {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .product__icon {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    .product__name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .product__tagline {
+      font-size: 15px;
+      color: var(--gray-500);
+      margin-bottom: 28px;
+    }
+
+    .product__features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    .product__features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: 15px;
+      color: var(--gray-700);
+    }
+    .product__features li:last-child { border-bottom: none; }
+    .product__features li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .product__pricing {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .price-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+      border-radius: 12px;
+      border: 2px solid var(--gray-100);
+      transition: border-color 0.15s;
+    }
+    .price-option:hover { border-color: var(--teal); }
+    .price-option--featured {
+      border-color: var(--teal);
+      background: linear-gradient(135deg, rgba(26,170,140,0.06), rgba(26,170,140,0.02));
+    }
+
+    .price-option__label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gray-900);
+    }
+    .price-option__desc {
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-top: 2px;
+    }
+    .price-option__badge {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 9px;
+      border-radius: 50px;
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
+    .price-option__amount {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+
+    .product__benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .benefit-card {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      box-shadow: 0 2px 12px rgba(15,32,64,0.05);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .benefit-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .benefit-card__icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .benefit-card__icon--navy { background: rgba(15,32,64,0.08); }
+    .benefit-card__icon--teal { background: rgba(26,170,140,0.12); }
+
+    .benefit-card__title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .benefit-card__text {
+      font-size: 14px;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* ─── WHY CHOOSE US ────────────────────────────────────────────── */
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .why__card {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .why__card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .why__num {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--gray-100);
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+
+    .why__title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .why__text {
+      font-size: 14px;
+      color: var(--gray-500);
+      line-height: 1.65;
+    }
+
+    /* ─── HOW IT WORKS ─────────────────────────────────────────────── */
+    .how {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    }
+    .how .section-label { color: #4fdcc0; }
+    .how .section-title { color: var(--white); }
+    .how .section-subtitle { color: rgba(255,255,255,0.6); }
+
+    .how__steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 64px;
+      position: relative;
+    }
+
+    .how__steps::before {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: calc(16.66% + 32px);
+      right: calc(16.66% + 32px);
+      height: 2px;
+      background: linear-gradient(90deg, rgba(26,170,140,0.4), rgba(26,170,140,0.4));
+      pointer-events: none;
+    }
+
+    .how__step {
+      text-align: center;
+      position: relative;
+    }
+
+    .how__step-num {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: rgba(26,170,140,0.2);
+      border: 2px solid rgba(26,170,140,0.5);
+      color: #4fdcc0;
+      font-size: 22px;
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .how__step-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .how__step-text {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+    }
+
+    /* ─── CONTACT ──────────────────────────────────────────────────── */
+    .contact__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact__info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .contact__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .contact__item-icon {
+      width: 52px; height: 52px;
+      background: var(--navy);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .contact__item-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 4px;
+    }
+
+    .contact__item-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .contact__item-sub {
+      font-size: 14px;
+      color: var(--gray-500);
+      margin-top: 2px;
+    }
+
+    .contact__highlight {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-100);
+      border-left: 4px solid var(--teal);
+      border-radius: 12px;
+      padding: 28px 28px;
+      font-size: 16px;
+      color: var(--gray-700);
+      line-height: 1.7;
+      margin-top: 8px;
+    }
+
+    .contact__area {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      border-radius: 20px;
+      padding: 40px;
+      color: var(--white);
+    }
+
+    .contact__area-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact__area-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .contact__area-list li {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 50px;
+    }
+
+    .contact__cta {
+      margin-top: 32px;
+      background: var(--teal);
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 600;
+      padding: 18px 28px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .contact__cta:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
+    }
+    .contact__cta-sub {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ─── FOOTER ───────────────────────────────────────────────────── */
+    .footer {
+      background: var(--navy);
+      padding: 52px 0;
+      text-align: center;
+    }
+
+    .footer__logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+    .footer__logo span { color: #4fdcc0; }
+
+    .footer__tagline {
+      font-size: 15px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 24px;
+    }
+
+    .footer__area {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 28px;
+    }
+
+    .footer__divider {
+      width: 48px; height: 2px;
+      background: rgba(26,170,140,0.4);
+      margin: 0 auto 28px;
+    }
+
+    .footer__copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ─── RESPONSIVE ───────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .section { padding: 60px 0; }
+
+      .nav__links { display: none; }
+      .nav__toggle { display: flex; }
+
+      .hero__inner { padding: 48px 0; }
+      .hero__stats { gap: 32px; }
+      .hero__actions { flex-direction: column; align-items: flex-start; }
+      .hero__actions .btn { width: 100%; justify-content: center; }
+
+      .about__grid { grid-template-columns: 1fr; gap: 40px; }
+      .about__product-card { max-width: 100%; }
+
+      .product__wrapper { grid-template-columns: 1fr; gap: 32px; }
+
+      .why__grid { grid-template-columns: 1fr; gap: 16px; }
+
+      .how__steps { grid-template-columns: 1fr; gap: 40px; }
+      .how__steps::before { display: none; }
+
+      .contact__inner { grid-template-columns: 1fr; gap: 40px; }
+
+      .price-option__amount { font-size: 22px; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 18px; }
+      .hero h1 { font-size: 36px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ─── NAVIGATION ──────────────────────────────────────────────── -->
+  <nav class="nav" id="navbar">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#home" class="nav__logo">Bulk<span>Wash</span> Co.</a>
+        <ul class="nav__links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#product">Product</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="tel:+18005550100" class="nav__cta">Call to Order</a></li>
+        </ul>
+        <div class="nav__toggle" id="navToggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+    <div class="nav__mobile" id="navMobile">
+      <a href="#home" onclick="closeMenu()">Home</a>
+      <a href="#about" onclick="closeMenu()">About</a>
+      <a href="#product" onclick="closeMenu()">Product</a>
+      <a href="#contact" onclick="closeMenu()">Contact</a>
+      <a href="tel:+18005550100" style="color:var(--teal);font-weight:700;">📞 Call to Order</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ───────────────────────────────────────────────────── -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__badge">Local &amp; Trusted — Serving Tampa Bay &amp; Beyond</div>
+        <h1>Powerful Clean.<br /><em>Bulk Savings.</em></h1>
+        <p class="hero__sub">High-quality laundry detergent without the high price.</p>
+        <p class="hero__desc">Designed for families, businesses, and anyone who wants long-lasting, effective cleaning at a better value. One bucket. Weeks of clean.</p>
+        <div class="hero__actions">
+          <a href="tel:+18005550100" class="btn btn--primary">📞 Call or Text to Order</a>
+          <a href="#product" class="btn btn--outline">See Pricing</a>
+        </div>
+        <div class="hero__phone-hint">
+          — Call or text anytime — quick, easy ordering —
+        </div>
+        <div class="hero__stats">
+          <div>
+            <div class="hero__stat-num">5 gal</div>
+            <div class="hero__stat-label">Per bucket</div>
+          </div>
+          <div>
+            <div class="hero__stat-num">$40</div>
+            <div class="hero__stat-label">Starting price</div>
+          </div>
+          <div>
+            <div class="hero__stat-num">100+</div>
+            <div class="hero__stat-label">Loads of laundry</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ──────────────────────────────────────────────────── -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__visual">
+          <div class="about__product-card">
+            <img src="images/buckets.jpg" alt="5-Gallon Laundry Detergent Bucket" />
+            <div class="about__product-name">5-Gallon Laundry Detergent</div>
+            <div class="about__product-prices">
+              <div class="about__product-price">$40 — Bucket</div>
+              <div class="about__product-price">$45 — Bucket + Pump</div>
+            </div>
+            <ul class="about__product-benefits">
+              <li>Long-lasting supply</li>
+              <li>Strong cleaning performance</li>
+              <li>Great for families</li>
+            </ul>
+          </div>
+        </div>
+        <div class="about__content">
+          <span class="section-label">Our Story</span>
+          <h2 class="section-title">Built for Real Families,<br />Not Big Retail</h2>
+          <p>We started this business with one simple idea: <strong>good laundry detergent shouldn't cost a fortune.</strong> As a local, family-run operation, we know how quickly household costs add up — and we wanted to do something about it.</p>
+          <p>By selling directly to customers in bulk, we cut out the middleman and pass the savings straight to you. Our detergent is <strong>comparable to leading national brands</strong> in cleaning performance, without the name-brand markup or the wasteful single-use plastic packaging.</p>
+          <p>Whether you're a large household doing laundry every day, a small business with uniform needs, or just someone tired of making weekly store runs — <strong>we've got a better way.</strong> Simple product. Honest price. Real results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRODUCT ────────────────────────────────────────────────── -->
+  <section class="section section--alt" id="product">
+    <div class="container">
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title">One Great Product.<br />Two Simple Options.</h2>
+      <p class="section-subtitle">No complicated lineup — just one high-performing detergent in a format that makes sense.</p>
+
+      <div class="product__wrapper" style="margin-top: 56px;">
+
+        <!-- Product Card -->
+        <div class="product__card">
+          <div class="product__icon">🧺</div>
+          <div class="product__name">5-Gallon Laundry Detergent</div>
+          <div class="product__tagline">Comparable to leading national brands — at a fraction of the cost.</div>
+
+          <ul class="product__features">
+            <li>Long-lasting bulk supply — enough for weeks of laundry</li>
+            <li>Strong cleaning performance on everyday fabrics</li>
+            <li>Works in standard and HE washing machines</li>
+            <li>Great for families, households, and small businesses</li>
+            <li>Convenient 5-gallon bucket — easy to store and use</li>
+          </ul>
+
+          <div class="product__pricing">
+            <div class="price-option">
+              <div>
+                <div class="price-option__label">Bucket Only</div>
+                <div class="price-option__desc">5-gallon detergent bucket</div>
+              </div>
+              <div class="price-option__amount">$40</div>
+            </div>
+            <div class="price-option price-option--featured">
+              <div>
+                <div class="price-option__label">Bucket + Pump</div>
+                <div class="price-option__desc">Includes easy-pour pump dispenser</div>
+                <div class="price-option__badge">Best Value</div>
+              </div>
+              <div class="price-option__amount">$45</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Benefits -->
+        <div class="product__benefits">
+          <div class="benefit-card">
+            <div class="benefit-card__icon benefit-card__icon--teal">💰</div>
+            <div>
+              <div class="benefit-card__title">Save Money Over Time</div>
+              <div class="benefit-card__text">Buying in bulk dramatically reduces your cost-per-load compared to buying small bottles week after week. One bucket goes a long way.</div>
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__icon benefit-card__icon--navy">🛒</div>
+            <div>
+              <div class="benefit-card__title">Fewer Store Trips</div>
+              <div class="benefit-card__text">Stock up once and stop worrying about running out. One 5-gallon bucket replaces several smaller store purchases over weeks or months.</div>
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__icon benefit-card__icon--teal">✅</div>
+            <div>
+              <div class="benefit-card__title">Easy to Use</div>
+              <div class="benefit-card__text">Use as-is or add the optional pump dispenser for clean, mess-free dispensing every load. No measuring cups, no spills.</div>
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-card__icon benefit-card__icon--navy">🏠</div>
+            <div>
+              <div class="benefit-card__title">Made for Large Households</div>
+              <div class="benefit-card__text">Whether it's a family of six or a small business with weekly loads, bulk format is the smart, practical choice for high-volume laundry.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHY CHOOSE US ──────────────────────────────────────────── -->
+  <section class="section" id="why">
+    <div class="container">
+      <span class="section-label">Why BulkWash Co.</span>
+      <h2 class="section-title">The Smarter Way<br />to Do Laundry</h2>
+      <p class="section-subtitle">We keep it simple, honest, and affordable — because that's what our customers deserve.</p>
+
+      <div class="why__grid">
+        <div class="why__card">
+          <div class="why__num">01</div>
+          <div class="why__title">Brand-Level Performance</div>
+          <div class="why__text">Our detergent is comparable to the leading national brands you already trust — without the premium retail markup.</div>
+        </div>
+        <div class="why__card">
+          <div class="why__num">02</div>
+          <div class="why__title">Bulk Value</div>
+          <div class="why__text">5 gallons means more loads, less shopping, and more savings. It's the bulk buy that actually makes sense for your home or business.</div>
+        </div>
+        <div class="why__card">
+          <div class="why__num">03</div>
+          <div class="why__title">No Nonsense</div>
+          <div class="why__text">One product. Straightforward pricing. No subscriptions, no upsells, no gimmicks. You call, we deliver — simple as that.</div>
+        </div>
+        <div class="why__card">
+          <div class="why__num">04</div>
+          <div class="why__title">Reliable Performance</div>
+          <div class="why__text">Consistent, effective cleaning load after load. Our customers keep coming back because it works — every time, without exception.</div>
+        </div>
+        <div class="why__card">
+          <div class="why__num">05</div>
+          <div class="why__title">Local &amp; Customer-First</div>
+          <div class="why__text">We're a real local business. When you call or text, you're talking to a person — not a chatbot or a call center. We take care of our customers.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HOW IT WORKS ───────────────────────────────────────────── -->
+  <section class="section how" id="how">
+    <div class="container">
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title">Three Steps to Clean</h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,0.6);">Ordering is fast and easy. No accounts, no apps, no hassle.</p>
+
+      <div class="how__steps">
+        <div class="how__step">
+          <div class="how__step-num">1</div>
+          <div class="how__step-title">Call or Text to Order</div>
+          <div class="how__step-text">Reach out by phone or text message to place your order. We'll confirm your selection — bucket only, or bucket with pump — and get everything ready for you.</div>
+        </div>
+        <div class="how__step">
+          <div class="how__step-num">2</div>
+          <div class="how__step-title">Arrange Pickup or Delivery</div>
+          <div class="how__step-text">We'll coordinate a convenient pickup location or delivery to your door within our service area. Fast, flexible, and friendly.</div>
+        </div>
+        <div class="how__step">
+          <div class="how__step-num">3</div>
+          <div class="how__step-title">Start Saving</div>
+          <div class="how__step-text">That's it. Enjoy weeks of powerful, effective laundry at a price that makes sense. Reorder anytime — we'll be ready.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ────────────────────────────────────────────────── -->
+  <section class="section section--alt" id="contact">
+    <div class="container">
+      <div class="contact__inner">
+        <div>
+          <span class="section-label">Get In Touch</span>
+          <h2 class="section-title">Ready to Order?<br />Just Reach Out.</h2>
+          <p class="section-subtitle">No forms. No accounts. Just call or text us and we'll take care of the rest.</p>
+
+          <div class="contact__highlight">
+            "Call or text us to place an order or ask questions. We respond quickly and keep the process as simple as possible."
+          </div>
+
+          <div class="contact__info">
+            <div class="contact__item">
+              <div class="contact__item-icon">📞</div>
+              <div>
+                <div class="contact__item-label">Phone / Text</div>
+                <!-- REPLACE with your real number below -->
+                <div class="contact__item-value">(800) 555-0100</div>
+                <div class="contact__item-sub">Preferred method — call or text anytime</div>
+              </div>
+            </div>
+            <div class="contact__item">
+              <div class="contact__item-icon">✉️</div>
+              <div>
+                <div class="contact__item-label">Email</div>
+                <!-- REPLACE with your real email below -->
+                <div class="contact__item-value" style="font-size:17px;">hello@bulkwashco.com</div>
+                <div class="contact__item-sub">For non-urgent questions</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="contact__area">
+            <div class="contact__area-title">
+              📍 Service Area
+            </div>
+            <ul class="contact__area-list">
+              <li>Tampa</li>
+              <li>Riverview</li>
+              <li>Brandon</li>
+              <li>Lakeland</li>
+              <li>Plant City</li>
+              <li>Valrico</li>
+              <li>Seffner</li>
+              <li>Gibsonton</li>
+              <li>Sun City Center</li>
+              <li>Surrounding Areas</li>
+            </ul>
+            <p style="font-size:14px;color:rgba(255,255,255,0.5);margin-top:24px;">Not sure if we serve your area? Just text us — we do our best to accommodate.</p>
+          </div>
+
+          <a href="tel:+18005550100" class="contact__cta" style="margin-top:24px; display:flex;">
+            <span style="font-size:22px;">📞</span>
+            <span>
+              <span style="display:block;">Call or Text Now</span>
+              <span class="contact__cta-sub">(800) 555-0100</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__logo">Bulk<span>Wash</span> Co.</div>
+      <div class="footer__tagline">Affordable. Reliable. Effective.</div>
+      <div class="footer__area">Serving Tampa, Riverview, Lakeland, Brandon &amp; surrounding communities</div>
+      <div class="footer__divider"></div>
+      <div class="footer__copy">&copy; 2025 BulkWash Co. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- ─── SCRIPTS ─────────────────────────────────────────────────── -->
+  <script>
+    // Nav scroll shadow
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // Mobile menu toggle
+    const toggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('navMobile');
+    toggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+    }
+
+    // Close mobile menu on outside click
+    document.addEventListener('click', (e) => {
+      if (!navbar.contains(e.target)) closeMenu();
+    });
+
+    // Smooth scroll offset for fixed nav
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

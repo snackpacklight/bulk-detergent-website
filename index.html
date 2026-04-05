@@ -138,16 +138,22 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 68px;
+      height: 100px;
     }
 
     .nav__logo {
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--navy);
-      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
     }
-    .nav__logo span { color: var(--teal); }
+    .nav__logo img {
+      max-height: 88px;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
 
     .nav__links {
       display: flex;
@@ -215,7 +221,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: 68px;
+      padding-top: 100px;
       position: relative;
       overflow: hidden;
     }
@@ -800,13 +806,19 @@
     }
 
     .footer__logo {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 10px;
     }
-    .footer__logo span { color: #4fdcc0; }
+    .footer__logo img {
+      max-height: 80px;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: brightness(1.15) drop-shadow(0 0 10px rgba(79, 220, 192, 0.30));
+    }
 
     .footer__tagline {
       font-size: 15px;
@@ -871,7 +883,9 @@
   <nav class="nav" id="navbar">
     <div class="container">
       <div class="nav__inner">
-        <a href="#home" class="nav__logo">CC Tubs <span>&amp;</span> Suds</a>
+        <a href="#home" class="nav__logo">
+          <img src="images/cc-tubs-suds-logo.png" alt="CC Tubs &amp; Suds logo" />
+        </a>
         <ul class="nav__links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -1160,7 +1174,9 @@
       <div style="margin-bottom:28px; font-size:26px; font-weight:700; color:rgba(255,255,255,0.90); line-height:1.5;">
         The owners, Chinette &amp; Clinton Stokes,<br />thank you for your business.
       </div>
-      <div class="footer__logo">CC Tubs <span>&amp;</span> Suds</div>
+      <a href="#home" class="footer__logo">
+        <img src="images/logo1.png" alt="CC Tubs &amp; Suds logo" />
+      </a>
       <div class="footer__tagline">Affordable. Reliable. Effective.</div>
       <div class="footer__area">Serving Tampa, Riverview, Lakeland, Brandon &amp; surrounding communities</div>
       <div class="footer__divider"></div>

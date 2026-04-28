@@ -335,6 +335,48 @@
       margin-top: 2px;
     }
 
+    /* ─── VIDEO ────────────────────────────────────────────────────── */
+    .video-section {
+      background: var(--gray-50);
+      padding: 88px 0;
+      text-align: center;
+    }
+
+    .video-section .section-label {
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    .video-section h2 {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .video-section p {
+      font-size: 17px;
+      color: var(--gray-500);
+      max-width: 540px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .video-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 48px rgba(15,32,64,0.18);
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     /* ─── ABOUT ────────────────────────────────────────────────────── */
     .about__grid {
       display: grid;
@@ -936,6 +978,21 @@
             <div class="hero__stat-label">Loads of laundry</div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── VIDEO ──────────────────────────────────────────────────── -->
+  <section class="video-section">
+    <div class="container">
+      <span class="section-label">Watch the Commercial</span>
+      <h2>See CC Tubs &amp; Suds in Action</h2>
+      <p>Watch our quick commercial to learn how we help families save with bulk liquid laundry detergent.</p>
+      <div class="video-wrapper">
+        <video controls autoplay muted playsinline preload="auto">
+          <source src="Video/commercial.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   </section>
